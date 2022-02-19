@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 @ZenCodeType.Name("mods.natures_aura.TreeRitual")
 @ZenRegister
