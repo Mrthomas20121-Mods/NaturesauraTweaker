@@ -1,14 +1,13 @@
 package mrthomas20121.naturesaura_tweaker.recipe;
 
-import com.blamejared.crafttweaker.CraftTweaker;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
-import com.blamejared.crafttweaker.api.annotations.ZenRegister;
-import com.blamejared.crafttweaker.api.item.IIngredient;
-import com.blamejared.crafttweaker.api.managers.IRecipeManager;
-import com.blamejared.crafttweaker.impl.actions.recipes.ActionAddRecipe;
-import com.blamejared.crafttweaker.impl.entity.MCEntityType;
+import com.blamejared.crafttweaker.api.action.recipe.ActionAddRecipe;
+import com.blamejared.crafttweaker.api.annotation.ZenRegister;
+import com.blamejared.crafttweaker.api.ingredient.IIngredient;
+import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import de.ellpeck.naturesaura.recipes.AnimalSpawnerRecipe;
 import de.ellpeck.naturesaura.recipes.ModRecipes;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +18,7 @@ import java.util.stream.Collectors;
 
 @ZenCodeType.Name("mods.natures_aura.AnimalSpawner")
 @ZenRegister
-public class CTAnimalSpawnerRecipe implements IRecipeManager {
+public class CTAnimalSpawnerRecipe implements IRecipeManager<AnimalSpawnerRecipe> {
 
     @Override
     public RecipeType<AnimalSpawnerRecipe> getRecipeType() {
@@ -34,9 +33,9 @@ public class CTAnimalSpawnerRecipe implements IRecipeManager {
      * @param ingredients ingredients required to summon this entity.
      */
     @ZenCodeType.Method
-    public void addRecipe(String registryName, MCEntityType entityType, int aura, int time, IIngredient... ingredients) {
-        Ingredient[] array = Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).collect(Collectors.toList()).toArray(new Ingredient[]{});
-        AnimalSpawnerRecipe recipe = new AnimalSpawnerRecipe(new ResourceLocation(CraftTweaker.MODID, registryName), entityType.getInternal(), aura, time, array);
-        CraftTweakerAPI.apply(new ActionAddRecipe(this, recipe, ""));
+    public void addRecipe(String registryName, EntityType<?> entityType, int aura, int time, IIngredient... ingredients) {
+        Ingredient[] array = Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList().toArray(new Ingredient[]{});
+        AnimalSpawnerRecipe recipe = new AnimalSpawnerRecipe(new ResourceLocation("crafttweaker", registryName), entityType, aura, time, array);
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, recipe, ""));
     }
 }

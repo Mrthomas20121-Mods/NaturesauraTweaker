@@ -20,7 +20,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
-//apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
+apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
 version = mod_version
 group = 'mrthomas20121.naturesaura_tweaker'
@@ -84,12 +84,13 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
 
     def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.1:9.0.57'
-    def mcDep = 'net.minecraftforge:forge:1.18.1-39.0.46'
+    def mcDep = 'net.minecraftforge:forge:1.18.1-39.0.79'
 
     minecraft mcDep
     compileOnly(ctDep)
     runtimeOnly(fg.deobf(ctDep))
     implementation fg.deobf("mezz.jei:jei-1.18.1:9.1.2.68")
+    implementation 'curse.maven:natures-aura-306626:3645315'
 
     annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.1:2.0.0.59'
     annotationProcessor 'com.google.code.gson:gson:2.8.6'
