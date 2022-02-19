@@ -9,9 +9,9 @@ import com.blamejared.crafttweaker.impl.actions.recipes.ActionAddRecipe;
 import com.blamejared.crafttweaker.impl.entity.MCEntityType;
 import de.ellpeck.naturesaura.recipes.AnimalSpawnerRecipe;
 import de.ellpeck.naturesaura.recipes.ModRecipes;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.resources.ResourceLocation;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Arrays;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class CTAnimalSpawnerRecipe implements IRecipeManager {
 
     @Override
-    public IRecipeType<AnimalSpawnerRecipe> getRecipeType() {
+    public RecipeType<AnimalSpawnerRecipe> getRecipeType() {
         return ModRecipes.ANIMAL_SPAWNER_TYPE;
     }
 

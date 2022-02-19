@@ -9,6 +9,10 @@ buildscript {
         maven {
             url "https://plugins.gradle.org/m2/"
         }
+        maven {
+            name 'Forge'
+            url 'https://files.minecraftforge.net/maven'
+        }
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
@@ -16,15 +20,16 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
+//apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
 version = mod_version
 group = 'mrthomas20121.naturesaura_tweaker'
-archivesBaseName = 'Natures Aura Tweaker 1.16.5 '
+archivesBaseName = 'Natures Aura Tweaker 1.18.1 '
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: '1.18.1'
 
     runs {
         client {
@@ -77,26 +82,26 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    def ct = fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.5:7.1.2.431')
-    def mc = minecraft "net.minecraftforge:forge:1.16.5-${forge_version}"
 
-	implementation fg.deobf("curse.maven:natures-aura-306626:3472977")
-    implementation fg.deobf("curse.maven:curios-309927:3456953")
+    def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.1:9.0.57'
+    def mcDep = 'net.minecraftforge:forge:1.18.1-39.0.46'
 
-	implementation ct
-    implementation fg.deobf("mezz.jei:jei-1.16.4:7.6.1.65")
+    minecraft mcDep
+    compileOnly(ctDep)
+    runtimeOnly(fg.deobf(ctDep))
+    implementation fg.deobf("mezz.jei:jei-1.18.1:9.1.2.68")
 
-    annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.16.5:1.0.0.431'
+    annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.1:2.0.0.59'
     annotationProcessor 'com.google.code.gson:gson:2.8.6'
     annotationProcessor 'org.reflections:reflections:0.9.10'
-    annotationProcessor mc
-    annotationProcessor ct
+    annotationProcessor mcDep
+    annotationProcessor ctDep
 }
 
 repositories {
     mavenLocal()
     maven { // Forge
-        name 'ForgeFS'
+        name 'Forge'
         url 'https://files.minecraftforge.net/maven'
     }
     maven { // JEI
@@ -118,12 +123,13 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    mavenCentral()
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "EidolonTweaker",
+            "Specification-Title": "NaturesAuraTweaker",
             "Specification-Vendor": "Mrthomas20121",
             "Specification-Version": "1",
             "Implementation-Title": project.name,

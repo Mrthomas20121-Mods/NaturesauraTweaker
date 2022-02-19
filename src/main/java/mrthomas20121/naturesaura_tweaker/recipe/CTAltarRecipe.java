@@ -15,9 +15,9 @@ import de.ellpeck.naturesaura.recipes.AltarRecipe;
 import de.ellpeck.naturesaura.recipes.ModRecipe;
 import de.ellpeck.naturesaura.recipes.ModRecipes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.resources.ResourceLocation;
 import org.openzen.zencode.java.ZenCodeType;
 
 @ZenCodeType.Name("mods.natures_aura.Altar")
@@ -58,7 +58,7 @@ public class CTAltarRecipe implements IRecipeManager {
     }
 
     @Override
-    public IRecipeType<AltarRecipe> getRecipeType() {
+    public RecipeType<AltarRecipe> getRecipeType() {
         return ModRecipes.ALTAR_TYPE;
     }
 }
