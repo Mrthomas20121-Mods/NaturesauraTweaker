@@ -1,2 +1,2 @@
-# EidolonTweaker
-Add Crafttweaker support to [Eidolon](https://www.curseforge.com/minecraft/mc-mods/eidolon).
+# NaturesAuraTweaker
+Add Crafttweaker support to [Nature's Aura](https://www.curseforge.com/minecraft/mc-mods/natures-aura).
