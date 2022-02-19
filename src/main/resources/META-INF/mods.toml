@@ -1,0 +1,33 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT License"
+issueTrackerURL="https://github.com/Mrthomas20121/NaturesauraTweaker/issues"
+
+[[mods]]
+modId="naturesaura_tweaker"
+version="0.0.1"
+displayName="Natures Aura Tweaker"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/naturesaura_tweaker"
+authors="Mrthomas20121"
+description='''
+Add Crafttweaker support to Natures Aura
+'''
+
+[[dependencies.naturesaura_tweaker]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.naturesaura_tweaker]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.naturesaura_tweaker]]
+	modId = "crafttweaker"
+	mandatory = true
+	versionRange = "[7.1,)"
+	ordering = "NONE"
+	side = "BOTH"
