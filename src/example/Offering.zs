@@ -1,0 +1,1 @@
+<recipetype:naturesaura:offering>.addRecipe(String registryName, IIngredient input, IIngredient startItem, IItemStack output);

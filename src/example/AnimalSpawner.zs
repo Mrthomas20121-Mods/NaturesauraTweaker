@@ -1,0 +1,1 @@
+<recipetype:naturesaura:animal_spawner>.addRecipe(String registryName, EntityType entity, int aura, int time, IIngredient... ingredients);
