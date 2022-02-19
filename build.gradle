@@ -39,6 +39,9 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 naturesaura_tweaker {
                     source sourceSets.main
@@ -92,6 +95,12 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei-1.18.1:9.1.2.68")
     implementation 'curse.maven:natures-aura-306626:3645315'
 
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.1-63:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.1-63")
+
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.1-5.0.3.0")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.1-5.0.3.0:api")
+
     annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.1:2.0.0.59'
     annotationProcessor 'com.google.code.gson:gson:2.8.6'
     annotationProcessor 'org.reflections:reflections:0.9.10'
@@ -104,6 +113,9 @@ repositories {
     maven { // Forge
         name 'Forge'
         url 'https://files.minecraftforge.net/maven'
+    }
+    maven {
+        url = "https://maven.theillusivec4.top/"
     }
     maven { // JEI
         name 'Prog Maven'
