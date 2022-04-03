@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
         maven {
             name = "sonatype"
@@ -8,10 +8,6 @@ buildscript {
         }
         maven {
             url "https://plugins.gradle.org/m2/"
-        }
-        maven {
-            name 'Forge'
-            url 'https://files.minecraftforge.net/maven'
         }
     }
     dependencies {
@@ -93,10 +89,10 @@ dependencies {
     compileOnly(ctDep)
     runtimeOnly fg.deobf(ctDep)
 
-    implementation fg.deobf("de.ellpeck.naturesaura:NaturesAura:36.0.119")
+    implementation fg.deobf("de.ellpeck.naturesaura:NaturesAura:36.0.121")
 
-    compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.1.133:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.1.133")
+    compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.5.5.174:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.5.5.174")
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-66-SNAPSHOT:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-66-SNAPSHOT")
@@ -123,19 +119,11 @@ repositories {
         name 'Prog Maven'
         url 'https://dvs1.progwml6.com/files/maven'
     }
-	maven {
-		name 'cursemaven'
-        url "https://cfa2.cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
     maven {
         name 'ellpeck mods'
         url "https://maven.ellpeck.de"
     }
     mavenCentral()
-    mavenLocal()
 }
 
 jar {
