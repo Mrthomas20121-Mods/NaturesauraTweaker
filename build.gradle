@@ -24,7 +24,7 @@ apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remappe
 
 version = mod_version
 group = 'mrthomas20121.naturesaura_tweaker'
-archivesBaseName = 'Natures Aura Tweaker 1.18.1 '
+archivesBaseName = 'Natures Aura Tweaker 1.18.2'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -86,22 +86,22 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
 
-    def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.1:9.0.57'
-    def mcDep = 'net.minecraftforge:forge:1.18.1-39.0.79'
+    def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:9.0.57'
+    def mcDep = 'net.minecraftforge:forge:1.18.2-40.0.36'
 
     minecraft mcDep
     compileOnly(ctDep)
     runtimeOnly(fg.deobf(ctDep))
-    implementation fg.deobf("mezz.jei:jei-1.18.1:9.1.2.68")
-    implementation 'curse.maven:natures-aura-306626:3645315'
+    implementation fg.deobf("mezz.jei:jei-1.18.2:9.4.1.113")
+    implementation 'curse.maven:natures-aura-306626:3672128'
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.1-63:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.1-63")
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-67:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-67")
 
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.1-5.0.3.0")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.1-5.0.3.0:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.6.3")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.6.3:api")
 
-    annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.1:2.0.0.59'
+    annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.2:2.0.0.83'
     annotationProcessor 'com.google.code.gson:gson:2.8.6'
     annotationProcessor 'org.reflections:reflections:0.9.10'
     annotationProcessor mcDep
@@ -109,7 +109,6 @@ dependencies {
 }
 
 repositories {
-    mavenLocal()
     maven { // Forge
         name 'Forge'
         url 'https://files.minecraftforge.net/maven'
