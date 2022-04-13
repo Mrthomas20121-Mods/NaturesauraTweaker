@@ -1,2 +1,2 @@
-# TFC Decoration
-Add new decorative blocks to Terrafirmacraft
+# NaturesAuraTweaker
+Add Crafttweaker support to [Nature's Aura](https://www.curseforge.com/minecraft/mc-mods/natures-aura).
