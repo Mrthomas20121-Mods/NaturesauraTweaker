@@ -1,3 +1,0 @@
-<recipetype:naturesaura:altar>.addRecipe(String registryName, IIngredient input, IItemStack output, String auraType, int aura, int time);
-<recipetype:naturesaura:altar>.addRecipe(String registryName, IIngredient input, IItemStack output, String auraType, IIngredient catalyst, int aura, int time);
-// auraType mean these "naturesaura:overworld", "naturesaura:nether", "naturesaura:end", "naturesaura:other"
